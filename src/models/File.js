@@ -18,7 +18,6 @@ const File = new mongoose.Schema({
     }],
     channel:{
         type:mongoose.Schema.Types.ObjectId,
-        default: ''
     }
 
 })

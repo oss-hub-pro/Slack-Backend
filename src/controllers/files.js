@@ -11,10 +11,7 @@ exports.uploadFiles = async (req, res) => {
             return { originalname: file.originalname, filename: file.filename }
         });
         let file = new File({ sender, receivers:tmp, files, channel });
-
-        console.log(file, '=========')
         await file.save();
-        console.log(file, '=========')
         res.json('');
     } catch (error) {
         res.status(500).json({ data: error, message: "Error", status: "error" })
