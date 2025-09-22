@@ -1,6 +1,6 @@
 const actions = require("../constants/slackSocketActions")
 const loginByToken = require("../utils/tokenDecode")
-const { fetchAllUsers, updateUser, sendContact, updateFileList} = require("../controllers/auth")
+const { fetchAllUsers, updateUser, sendContact, updateFileList, sendTyping} = require("../controllers/auth")
 const { createChannel, fetchChannels, updateChannel, deleteChannel } = require("../controllers/channel.js")
 const message = require('../controllers/message.js')
 const socketArr = {};
@@ -52,4 +52,5 @@ exports.socketRoutes = (socket) => {
     
     socket.on(actions.FILES, () => updateFileList(socketArr))
     socket.on(actions.UPDATE, data => updateUser(socketArr, data))
+    socket.on(actions.TYPING, data => sendTyping(socketArr, data))
 }
