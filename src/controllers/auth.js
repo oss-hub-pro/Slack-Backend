@@ -96,8 +96,6 @@ exports.updateFileList = async (socketList) => {
 }
 
 exports.sendTyping = async (socketList, data) => {
-    console.log(data);
-
     multiEmit(socketList, data.receivers, actions.TYPING, data.status)
 }
 
